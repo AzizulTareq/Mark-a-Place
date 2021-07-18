@@ -16,9 +16,10 @@ function App() {
       {...viewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
       onViewportChange={nextViewport => setViewport(nextViewport)}
+      mapStyle="mapbox://styles/azizultareq/ckr8uqwzr1prq18p0wrxzpndw"
 >
       <Marker latitude={23.8070} longitude={90.3636} offsetLeft={-20} offsetTop={-10}>
-        <ImLocation2 style={{ fontSize: viewport.zoom * 7, color: '#26AFBF'}} />
+        <ImLocation2 style={{ fontSize: viewport.zoom * 7, color: '#FFAA00'}} />
       </Marker>
     </ReactMapGL>
     </div>
