@@ -44,7 +44,7 @@ function App() {
       {pins.map((p) => (
         <>
         <Marker latitude={p.lat} longitude={p.long} offsetLeft={-20} offsetTop={-10}>
-        <ImLocation2 style={{ fontSize: viewport.zoom * 7, color: '#FFAA00'}}
+        <ImLocation2 style={{ fontSize: viewport.zoom * 7, color: '#FFAA00', cursor: 'pointer'}}
         onClick={() => onMarkerClick(p._id)}
         />
       </Marker>
@@ -55,6 +55,7 @@ function App() {
           longitude={p.long}
           closeButton={true}
           closeOnClick={false}
+          onClose={() => setCurrentPlaceId(null)}
           anchor="left" >
           <div className="card">
             <label>Place</label>
