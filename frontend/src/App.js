@@ -8,6 +8,7 @@ import './App.css'
 
 function App() {
   const [pins, setPins] = useState([])
+  const [currentPlaceId, setCurrentPlaceId] = useState(null)
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100vh",
@@ -27,6 +28,10 @@ function App() {
     };
     getPins();
   }, []);
+
+  const onMarkerClick = (id) => {
+      setCurrentPlaceId(id)
+  }
   return (
     <div className="App">
       <ReactMapGL
@@ -39,10 +44,13 @@ function App() {
       {pins.map((p) => (
         <>
         <Marker latitude={p.lat} longitude={p.long} offsetLeft={-20} offsetTop={-10}>
-        <ImLocation2 style={{ fontSize: viewport.zoom * 7, color: '#FFAA00'}} />
+        <ImLocation2 style={{ fontSize: viewport.zoom * 7, color: '#FFAA00'}}
+        onClick={() => onMarkerClick(p._id)}
+        />
       </Marker>
 
-       <Popup
+        {p._id === currentPlaceId && (
+          <Popup
           latitude={p.lat}
           longitude={p.long}
           closeButton={true}
@@ -66,6 +74,9 @@ function App() {
             <span className="date">{format(p.createdAt)}</span>
           </div>
       </Popup>
+
+        )}
+       
       </>
 
       ))}
