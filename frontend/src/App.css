@@ -8,9 +8,9 @@
 
 label {
     width: max-content;
-    color: tomato;
+    color: rgb(197, 39, 158);
     font-size: 13px;
-    border-bottom: .5px solid tomato;
+    border-bottom: .5px solid rgb(197, 39, 158);
     margin: 3px 0;
 }
 
@@ -29,3 +29,45 @@ label {
 .data {
     font-size: 11px;
 }
+
+form {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+input, texarea {
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+input::placeholder, textarea::placeholder {
+    font-size: 12px;
+    color: rgb(155, 151, 151);
+}
+
+.submitButton {
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(21, 139, 21);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
