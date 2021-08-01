@@ -62,6 +62,7 @@ input::placeholder, textarea::placeholder {
     padding: 5px;
     border-radius: 5px;
     color: white;
+    cursor: pointer;
 }
 
 .logout {

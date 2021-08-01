@@ -4,10 +4,11 @@ import { ImLocation2 } from 'react-icons/im'
 import { AiFillStar } from 'react-icons/ai'
 import axios from 'axios'
 import { format } from 'timeago.js'
+import Register from './components/Register'
 import './App.css'
 
 function App() {
-  const [currentuser, setCurrentuser] = (null)
+  const [currentuser, setCurrentuser] = useState(null)
   const [pins, setPins] = useState([])
   const [newPlace, setNewPlace] = useState(null)
   const [currentPlaceId, setCurrentPlaceId] = useState(null)
@@ -74,9 +75,6 @@ function App() {
     }
   }
 
-  const onLogout = () => {
-    currentuser = null
-  }
 
   return (
     <div className="App">
@@ -158,13 +156,13 @@ function App() {
           </Popup>
 
       )}
-      {currentuser ? (<button className="button logout" onClick={onLogout}>Log out</button>) : (
+      {currentuser ? (<button className="button logout" >Log out</button>) : (
           <div className="buttons">
           <button className="button login">Login</button>
           <button className="button register">Register</button>
           </div>
       )}
-     
+     <Register />
     </ReactMapGL>
     </div>
   );
