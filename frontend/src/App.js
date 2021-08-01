@@ -7,7 +7,7 @@ import { format } from 'timeago.js'
 import './App.css'
 
 function App() {
-  const currentuser = "Tareq"
+  const [currentuser, setCurrentuser] = (null)
   const [pins, setPins] = useState([])
   const [newPlace, setNewPlace] = useState(null)
   const [currentPlaceId, setCurrentPlaceId] = useState(null)
@@ -74,6 +74,10 @@ function App() {
     }
   }
 
+  const onLogout = () => {
+    currentuser = null
+  }
+
   return (
     <div className="App">
       <ReactMapGL
@@ -86,7 +90,7 @@ function App() {
       
       {pins.map((p) => (
         <>
-        <Marker latitude={p.lat} longitude={p.long} offsetLeft={-20} offsetTop={-10}>
+        <Marker latitude={p.lat} longitude={p.long} offsetLeft={-viewport.zoom * 3.5} offsetTop={-viewport.zoom * 7}>
         <ImLocation2 style={{ fontSize: viewport.zoom * 7, color: p.username === currentuser? 'red' : '#FFAA00', cursor: 'pointer'}}
         onClick={() => onMarkerClick(p._id, p.lat, p.long)}
         />
@@ -153,6 +157,12 @@ function App() {
             </div>
           </Popup>
 
+      )}
+      {currentuser ? (<button className="button logout" onClick={onLogout}>Log out</button>) : (
+          <div className="buttons">
+          <button className="button login">Login</button>
+          <button className="button register">Register</button>
+          </div>
       )}
      
     </ReactMapGL>
