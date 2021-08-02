@@ -4,7 +4,7 @@ import { FaUserAlt } from 'react-icons/fa'
 import { ImCancelCircle } from 'react-icons/im'
 import "./login.css";
 
-export default function Login({ setShowLogin}) {
+export default function Login({ setShowLogin, myStorage, setCurrentuser}) {
   const [error, setError] = useState(false);
   const usernameRef = useRef();
   const passwordRef = useRef();
@@ -17,6 +17,8 @@ export default function Login({ setShowLogin}) {
     };
     try {
       const res = await axios.post("/users/login", user);
+      myStorage.setItem("user", res.data.username)
+      setCurrentuser(res.data.username)
       setShowLogin(false)
     } catch (err) {
       setError(true);
