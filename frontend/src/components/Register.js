@@ -4,7 +4,7 @@ import { FaUserAlt } from 'react-icons/fa'
 import { ImCancelCircle } from 'react-icons/im'
 import axios from 'axios'
 
-const Register = () => {
+const Register = ({ setShowRegister }) => {
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState(false)
     const nameRef = useRef();
@@ -28,16 +28,6 @@ const Register = () => {
         }
 
 
-
-
-
-
-
-
-
-
-
-
     }
     return (
         <div className="registerContainer">
@@ -57,7 +47,7 @@ const Register = () => {
                 <span className="failure">Something went wrong</span>
             )}
             </form>
-            <ImCancelCircle />
+            <ImCancelCircle className="registerCross" onClick={() => setShowRegister(false)} />
         </div>
     )
 }

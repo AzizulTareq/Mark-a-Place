@@ -5,6 +5,7 @@ import { AiFillStar } from 'react-icons/ai'
 import axios from 'axios'
 import { format } from 'timeago.js'
 import Register from './components/Register'
+import Login from './components/Login';
 import './App.css'
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
   const [title, setTitle] = useState(null)
   const [desc, setDesc] = useState(null)
   const [rating, setRating] = useState(0)
+  const [showRegister, setShowRegister] = useState(false)
+  const [showLogin, setShowLogin] = useState(false)
   const [viewport, setViewport] = useState({
   
     width: "100vw",
@@ -158,11 +161,14 @@ function App() {
       )}
       {currentuser ? (<button className="button logout" >Log out</button>) : (
           <div className="buttons">
-          <button className="button login">Login</button>
-          <button className="button register">Register</button>
+          <button className="button login" onClick={() => setShowLogin(true)}>Login</button>
+          <button className="button register" onClick={() => setShowRegister(true)}>Register</button>
           </div>
       )}
-     <Register />
+      {showRegister && <Register setShowRegister={setShowRegister} />}
+      {showLogin && <Login setShowLogin={setShowLogin} />}
+      
+     
     </ReactMapGL>
     </div>
   );
