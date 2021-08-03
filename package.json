@@ -2,7 +2,7 @@
   "name": "mark_a_place",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
@@ -19,6 +19,10 @@
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AzizulTareq/Mark-a-Place.git"
   },
   "author": "",
   "license": "ISC"
