@@ -2,7 +2,7 @@
   "name": "mark_a_place",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "backend/server.js",
   "dependencies": {
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
@@ -14,13 +14,13 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "cd client && npm run build",
-    "install-client": "cd client && npm run build",
+    "build": "cd frontend && npm run build",
+    "install-client": "cd frontend && npm run build",
     "heroku-postbuild": "npm run install-client && npm run build",
     "start": "node backend/server",
     "server": "nodemon backend/server",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run frontend\""
    
   },
   "repository": {
